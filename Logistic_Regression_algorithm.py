@@ -1,12 +1,19 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
+import pyRAPL
 from sklearn import metrics
 from sklearn.datasets import load_digits
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import classification_report, confusion_matrix
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
+
+
+pyRAPL.setup()
+measure = pyRAPL.Measurement('Measurement')
+measure.begin()
+
 
 # loading a dataset
 digits = load_digits()
@@ -34,6 +41,9 @@ print("\nTesting data accuracy:", test_score)
 print("\nClassification report:\n", classification_report(y_test, y_predict))
 print("\nPredictions:\n ", y_predict)
 
+measure.end()
+print("\n", measure.result)
+
 # Confusion matrix
 plt.figure(figsize=(9, 9))
 sns.heatmap(cm, annot=True, fmt=".3f", linewidths=.5, square=True, cmap='Blues_r')
@@ -49,3 +59,4 @@ plt.gray()
 plt.matshow(x_train[2].reshape(8, 8))
 """
 plt.show()
+
