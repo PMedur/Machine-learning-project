@@ -1,3 +1,3 @@
 # Machine-learning-project
 
-Class project in which i tested diferent machine learning algorithms and compare them on energy consumption and time to excecute.
+Class project in which I tested different machine learning algorithms and compared them on energy consumption and time to execute.
